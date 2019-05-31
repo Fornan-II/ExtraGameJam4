@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Ink.Runtime;
 
 public class ButtonInfo : MonoBehaviour
 {
     public Text choiceMessage;
-    public delegate void OnSelectCallback();
-    public OnSelectCallback CallbackAction;
+    protected int choiceIndex = -1;
 
-    public void SetInfo(string msg, OnSelectCallback onClick)
+    public void SetInfo(Choice choice)
     {
-        choiceMessage.text = msg;
-        CallbackAction = onClick;
+        choiceMessage.text = choice.text;
+        choiceIndex = choice.index;
     }
 
-    public void OnClick()
+    public virtual void OnClick()
     {
-        CallbackAction.Invoke();
+        DialogueUIManager.Instance.story.ChooseChoiceIndex(choiceIndex);
+        choiceIndex = -1;
     }
 }

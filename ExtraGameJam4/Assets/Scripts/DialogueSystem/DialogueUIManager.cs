@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using Ink.Runtime;
 
 public class DialogueUIManager : MonoBehaviour
 {
+    public static DialogueUIManager Instance;
+
+    public Story story;
+
     public PanelInfo DialoguePanel;
     public ChoicePanelInfo ChoicePanel;
 
@@ -17,6 +21,6 @@ public class DialogueUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
