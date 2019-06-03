@@ -17,7 +17,7 @@ public class ButtonInfo : MonoBehaviour
 
     public virtual void OnClick()
     {
-        DialogueUIManager.Instance.story.ChooseChoiceIndex(choiceIndex);
+        DialogueUIManager.Instance.MakeDecision(choiceIndex);
         choiceIndex = -1;
     }
 }
